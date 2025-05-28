@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aakash Chouhan | Portfolio</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Playfair+Display:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script>
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      background-color: #FFE6BC;
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+    section {
+      opacity: 1;
+      transform: translateY(50px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+      position: relative;
+      background-color: #FFF3E0 !important;
+      padding: 2rem;
+      border-radius: 0.75rem;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .timeline {
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: repeating-linear-gradient(
+        to bottom,
+        #B85C38,
+        #B85C38 4px,
+        transparent 4px,
+        transparent 12px
+      );
+    }
+    .dot {
+      position: absolute;
+      left: -26px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #ccc;
+      transition: background-color 0.5s;
+    }
+    .dot.active {
+      background-color: #B85C38;
+    }
+	#avatar {
+	  position: fixed;
+	  top: 0;
+	  left: 0;
+	  width: 100vw;
+	  height: 100vh;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  background: #FFE6BC; 
+	  z-index: 10;
+	  transition: all 2s ease;
+	}
+	#avatar img {
+	  width: 400px;
+	  aspect-ratio: 1 / 1;
+	  border-radius: 50%;
+	  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	  object-fit: cover;
+	  transition: all 2s ease;
+	}
+	#avatar.to-corner {
+	  top: auto;
+	  left: auto;
+	  right: 20px;
+	  bottom: 20px;
+	  width: auto;
+	  height: auto;
+	  background: none;
+	  justify-content: unset;
+	  align-items: unset;
+	}
+	#avatar.to-corner img {
+	  width: 60px;
+	}
+	@media (min-width: 641px) and (max-width: 1024px) {
+	  #avatar.to-corner img {
+		width: 80px;
+	  }
+	}
+	@media (min-width: 1025px) {
+	  #avatar.to-corner img {
+		width: 100px;
+	  }
+	}
+
+    }
+  </style>
+</head>
+<body class="text-[#6B4F3A]">
+<header class="bg-[#FFE6BC] shadow-md sticky top-0 z-40">
+<div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+<h1 class="text-3xl font-bold text-black">Aakash Chouhan</h1>
+<nav class="mt-2 md:mt-0 flex flex-wrap gap-6 text-lg text-black">
+<a class="hover:text-[#B85C38] transition" href="#about">About</a>
+<a class="hover:text-[#B85C38] transition" href="#education">Education</a>
+<a class="hover:text-[#B85C38] transition" href="#skills">Skills</a>
+<a class="hover:text-[#B85C38] transition" href="#experience">Experience</a>
+<a class="hover:text-[#B85C38] transition" href="#projects">Projects</a>
+<a class="hover:text-[#B85C38] transition" href="#certifications">Certifications</a>
+</nav>
+</div>
+</header>
+<main class="container mx-auto px-4 py-12 space-y-28 relative">
+<div class="timeline"></div>
+<section class="space-y-6" id="about">
+<div class="dot"></div>
+<h2 class="text-3xl font-semibold text-[#B85C38]">About Me</h2>
+<p class="text-lg text-[#6B4F3A] max-w-2xl">Computer Science student at the University of Manitoba with strong foundations in Java development, distributed systems, and cybersecurity. Experienced in building scalable RESTful APIs and secure systems, with professional exposure at SkipTheDishes, UManitoba, and Cryptus Cyber Security.</p>
+</section>
+<section class="space-y-6" id="education">
+<div class="dot"></div>
+<h2 class="text-3xl font-semibold text-[#B85C38]">Education</h2>
+<div class="relative border-l-4 border-[#B85C38] pl-6">
+<div class="mb-6">
+<h3 class="font-semibold">B.Sc. Computer Science</h3>
+<p class="text-sm text-[#6B4F3A]">University of Manitoba (May 2020 – April 2025)</p>
+</div>
+<div class="mb-6">
+<h3 class="font-semibold">Foundation in Computer Science</h3>
+<p class="text-sm text-[#6B4F3A]">International College of Manitoba (May 2019 – April 2020)</p>
+</div>
+</div>
+</section>
+<section class="space-y-6" id="skills">
+<div class="dot"></div>
+<h2 class="text-3xl font-semibold text-[#B85C38]">Skills</h2>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+<div>
+<h3 class="font-semibold">Programming</h3>
+<p>Java, Python, C++, SQL</p>
+</div>
+<div>
+<h3 class="font-semibold">Tools</h3>
+<p>Grafana, Metasploit, Burp Suite, Nmap, Git</p>
+</div>
+<div>
+<h3 class="font-semibold">Concepts</h3>
+<p>Cybersecurity, Threat Intelligence, Microservices, Distributed Systems</p>
+</div>
+<div>
+<h3 class="font-semibold">Cloud &amp; DevOps</h3>
+<p>AWS, REST APIs, Test-driven Development</p>
+</div>
+</div>
+</section>
+<section class="space-y-6" id="experience">
+<div class="dot"></div>
+<h2 class="text-3xl font-semibold text-[#B85C38]">Work Experience</h2>
+<div class="border-l-4 border-[#B85C38] pl-6">
+<div class="mb-6">
+<h3 class="font-semibold">Operations Specialist - Skip</h3>
+<p class="text-sm text-[#6B4F3A]">Dec 2023 – Sep 2024</p>
+<ul class="list-disc list-inside text-[#6B4F3A]">
+<li>Delivered multicultural customer support across Canada, Australia, UK, and Ireland.</li>
+<li>Managed 200+ daily chats with &lt; 5-minute resolution times.</li>
+<li>Enhanced stakeholder experience using Skip's internal platforms.</li>
+</ul>
+</div>
+<div class="mb-6">
+<h3 class="font-semibold">Software Developer - University of Manitoba</h3>
+<p class="text-sm text-[#6B4F3A]">Jan 2024 – Apr 2024</p>
+<ul class="list-disc list-inside text-[#6B4F3A]">
+<li>Enhanced Java-powered code evaluation engine to detect academic misconduct.</li>
+<li>Implemented Winnowing algorithm and built an intuitive faculty interface.</li>
+</ul>
+</div>
+<div class="mb-6">
+<h3 class="font-semibold">Cybersecurity Analyst - Cryptus Cyber Security</h3>
+<p class="text-sm text-[#6B4F3A]">Apr 2018 – May 2018</p>
+<ul class="list-disc list-inside text-[#6B4F3A]">
+<li>Performed penetration testing and security audits using OWASP and Metasploit.</li>
+<li>Identified XSS and SQL injection vulnerabilities in web applications.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="space-y-6" id="projects">
+<div class="dot"></div>
+<h2 class="text-3xl font-semibold text-[#B85C38]">Projects</h2>
+<div class="space-y-4">
+<div class="p-4 shadow-md rounded-xl bg-white">
+<h3 class="font-semibold">Academic Integrity Tool</h3>
+<p class="text-[#6B4F3A]">Developed a Java-based tool to detect code plagiarism using the Winnowing algorithm. Integrated with a faculty dashboard to enhance review efficiency.</p>
+</div>
+<div class="p-4 shadow-md rounded-xl bg-white">
+<h3 class="font-semibold">Secure Web Application Audit</h3>
+<p class="text-[#6B4F3A]">Performed vulnerability assessments using OWASP Top 10 standards on client applications. Identified and reported critical XSS and SQLi flaws.</p>
+</div>
+<div class="p-4 shadow-md rounded-xl bg-white">
+<h3 class="font-semibold">Customer Interaction Analytics</h3>
+<p class="text-[#6B4F3A]">Analyzed live customer interaction data at SkipTheDishes to improve platform response efficiency and user experience.</p>
+</div>
+</div>
+</section>
+<section class="space-y-6" id="certifications">
+<div class="dot"></div>
+<h2 class="text-3xl font-semibold text-[#B85C38]">Certifications</h2>
+<div class="space-y-4">
+<div class="mb-6">
+<h3 class="font-semibold">Cybersecurity Job Simulation - Mastercard</h3>
+</div>
+<div class="mb-6">
+<h3 class="font-semibold">Magnet Virtual Summit CTF Workshop</h3>
+</div>
+<div class="mb-6">
+<h3 class="font-semibold">Learning Threat Intelligence</h3>
+</div>
+<div class="mb-6">
+<h3 class="font-semibold">Quantitative Research Job Simulation - JPMorgan Chase</h3>
+</div>
+</div>
+</section>
+</main>
+<!-- Avatar -->
+<div id="avatar">
+<img alt="Avatar" id="avatarImage" src="data/hi.png"/>
+</div>
+
+<script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          const dot = entry.target.querySelector('.dot');
+          if (dot) dot.classList.add('active');
+        } else {
+          entry.target.classList.remove('visible');
+          const dot = entry.target.querySelector('.dot');
+          if (dot) dot.classList.remove('active');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('main section').forEach(section => {
+      observer.observe(section);
+    });
+
+    const avatar = document.getElementById("avatarImage");
+    const avatarContainer = document.getElementById("avatar");
+    const activeImg = "data/hi.png";
+    const idleImg = "data/sleepy.png";
+
+    const setActiveAvatar = () => {
+      avatar.src = activeImg;
+      avatar.classList.add("animate");
+    };
+
+    const setIdleAvatar = () => {
+      avatar.src = idleImg;
+      avatar.classList.remove("animate");
+    };
+
+    let idleTimeout;
+    const resetIdleDetection = () => {
+      setActiveAvatar();
+      clearTimeout(idleTimeout);
+      idleTimeout = setTimeout(() => {
+        setIdleAvatar();
+      }, 500);
+    };
+
+    ['scroll', 'mousemove', 'keydown'].forEach(event => {
+      window.addEventListener(event, resetIdleDetection);
+    });
+
+    resetIdleDetection();
+
+    // Initial animation to bottom-right
+	window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('avatar').classList.add('to-corner');
+    }, 2000);
+
+    // Ensure audio plays after first interaction (for browser autoplay policies)
+    window.addEventListener('click', () => {
+      const audio = document.getElementById('bgMusic');
+      if (audio.paused) {
+        audio.play().catch(() => {});
+      }
+    }, { once: true });
+  });
+
+  function toggleMusic() {
+    const audio = document.getElementById('bgMusic');
+    audio.muted = !audio.muted;
+  }
+  
+
+  </script>
+<!-- Ambient Music -->
+<audio autoplay="" id="bgMusic" loop="" src="data/zen.mp3"></audio>
+<!-- Music Toggle Button -->
+<!-- music taken from Music by Bensound.com
+License code: GO2WMZCKODZMYGAU-->
+<button class="fixed bottom-5 left-5 bg-[#B85C38] text-black px-3 py-2 rounded shadow z-50" onclick="toggleMusic()">
+  Toggle Music
+</button>
+</body>
+</html>
