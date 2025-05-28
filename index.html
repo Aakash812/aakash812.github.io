@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Aakash Chouhan | Portfolio</title>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Playfair+Display:wght@500;700&amp;display=swap" rel="stylesheet"/>
-<script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aakash Chouhan | Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
     body {
       font-family: 'Inter', sans-serif;
       scroll-behavior: smooth;
@@ -25,6 +24,7 @@
       background-color: #FFF3E0 !important;
       padding: 2rem;
       border-radius: 0.75rem;
+	  z-index:10;
     }
     section.visible {
       opacity: 1;
@@ -56,71 +56,96 @@
     .dot.active {
       background-color: #B85C38;
     }
-	#avatar {
-	  position: fixed;
-	  top: 0;
-	  left: 0;
-	  width: 100vw;
-	  height: 100vh;
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
-	  background: #FFE6BC; 
-	  z-index: 10;
-	  transition: all 2s ease;
-	}
-	#avatar img {
-	  width: 400px;
-	  aspect-ratio: 1 / 1;
-	  border-radius: 50%;
-	  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-	  object-fit: cover;
-	  transition: all 2s ease;
-	}
-	#avatar.to-corner {
-	  top: auto;
-	  left: auto;
-	  right: 20px;
-	  bottom: 20px;
-	  width: auto;
-	  height: auto;
-	  background: none;
-	  justify-content: unset;
-	  align-items: unset;
-	}
-	#avatar.to-corner img {
-	  width: 60px;
-	}
-	@media (min-width: 641px) and (max-width: 1024px) {
-	  #avatar.to-corner img {
-		width: 80px;
-	  }
-	}
-	@media (min-width: 1025px) {
-	  #avatar.to-corner img {
-		width: 100px;
-	  }
-	}
-
+    #avatar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #FFE6BC;
+      z-index: 10;
+      transition: all 2s ease;
+    }
+    #avatar img {
+      width: 400px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      object-fit: cover;
+      transition: all 2s ease;
+    }
+    #avatar.to-corner {
+      top: auto;
+      left: auto;
+      right: 20px;
+      bottom: 20px;
+      width: auto;
+      height: auto;
+      background: none;
+      justify-content: unset;
+      align-items: unset;
+    }
+    #avatar.to-corner img {
+      width: 60px;
+    }
+    @media (min-width: 641px) and (max-width: 1024px) {
+      #avatar.to-corner img {
+        width: 80px;
+      }
+    }
+    @media (min-width: 1025px) {
+      #avatar.to-corner img {
+        width: 100px;
+      }
     }
   </style>
 </head>
+
 <body class="text-[#6B4F3A]">
-<header class="bg-[#FFE6BC] shadow-md sticky top-0 z-40">
-<div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
-<h1 class="text-3xl font-bold text-black">Aakash Chouhan</h1>
-<nav class="mt-2 md:mt-0 flex flex-wrap gap-6 text-lg text-black">
-<a class="hover:text-[#B85C38] transition" href="#about">About</a>
-<a class="hover:text-[#B85C38] transition" href="#education">Education</a>
-<a class="hover:text-[#B85C38] transition" href="#skills">Skills</a>
-<a class="hover:text-[#B85C38] transition" href="#experience">Experience</a>
-<a class="hover:text-[#B85C38] transition" href="#projects">Projects</a>
-<a class="hover:text-[#B85C38] transition" href="#certifications">Certifications</a>
-</nav>
+
+
+<!-- Sidebar Toggle Button (left side with 3-bar icon using Unicode) -->
+<button id="menu-toggle" class="fixed top-5 left-5 z-50 p-3 bg-[#B85C38] text-black rounded focus:outline-none md:hidden text-2xl">
+  &#9776;
+</button>
+
+<!-- Sidebar Menu (left side) -->
+<div id="sidebar-menu" class="fixed top-0 left-0 h-full w-64 bg-[#B85C38] text-[#6B4F3A] transform -translate-x-full transition-transform duration-300 ease-in-out z-[999] shadow-2xl">
+
+  <div class="flex flex-col space-y-6 mt-20 px-6 text-lg">
+    <a href="#about" class="bg-[#FFE6BC] px-4 py-2 rounded hover:bg-[#FDD9A0] transition">About</a>
+    <a href="#education" class="bg-[#FFE6BC] px-4 py-2 rounded hover:bg-[#FDD9A0] transition">Education</a>
+    <a href="#skills" class="bg-[#FFE6BC] px-4 py-2 rounded hover:bg-[#FDD9A0] transition">Skills</a>
+    <a href="#experience" class="bg-[#FFE6BC] px-4 py-2 rounded hover:bg-[#FDD9A0] transition">Experience</a>
+    <a href="#projects" class="bg-[#FFE6BC] px-4 py-2 rounded hover:bg-[#FDD9A0] transition">Projects</a>
+    <a href="#certifications" class="bg-[#FFE6BC] px-4 py-2 rounded hover:bg-[#FDD9A0] transition">Certifications</a>
+  </div>
 </div>
+
+
+
+
+<header class="bg-[#FFE6BC] shadow-md fixed top-0 w-full z-100">
+  <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+    <h1 class="text-3xl font-bold text-black">Aakash Chouhan</h1>
+    <nav class="hidden md:flex flex-wrap gap-6 text-lg text-black">
+      <a href="#about" class="hover:text-[#B85C38] transition">About</a>
+      <a href="#education" class="hover:text-[#B85C38] transition">Education</a>
+      <a href="#skills" class="hover:text-[#B85C38] transition">Skills</a>
+      <a href="#experience" class="hover:text-[#B85C38] transition">Experience</a>
+      <a href="#projects" class="hover:text-[#B85C38] transition">Projects</a>
+      <a href="#certifications" class="hover:text-[#B85C38] transition">Certifications</a>
+    </nav>
+  </div>
 </header>
+
+<div class="h-24"></div>
+
 <main class="container mx-auto px-4 py-12 space-y-28 relative">
-<div class="timeline"></div>
+  <div class="timeline"></div>
 <section class="space-y-6" id="about">
 <div class="dot"></div>
 <h2 class="text-3xl font-semibold text-[#B85C38]">About Me</h2>
@@ -230,67 +255,63 @@
 </div>
 </section>
 </main>
+
+
 <!-- Avatar -->
 <div id="avatar">
-<img alt="Avatar" id="avatarImage" src="data/hi.png"/>
+  <img id="avatarImage" src="data/hi.png" alt="Avatar" />
 </div>
 
+<!-- Background Music -->
+<audio id="bgMusic" src="data/zen.mp3" autoplay loop></audio>
+
+<!-- Toggle Button -->
+<button onclick="toggleMusic()" class="fixed bottom-5 left-5 bg-[#B85C38] text-black px-3 py-2 rounded shadow z-100">
+  Toggle Music
+</button>
+
 <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          const dot = entry.target.querySelector('.dot');
-          if (dot) dot.classList.add('active');
-        } else {
-          entry.target.classList.remove('visible');
-          const dot = entry.target.querySelector('.dot');
-          if (dot) dot.classList.remove('active');
-        }
-      });
-    }, { threshold: 0.3 });
-
-    document.querySelectorAll('main section').forEach(section => {
-      observer.observe(section);
+  // Section animation
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        const dot = entry.target.querySelector('.dot');
+        if (dot) dot.classList.add('active');
+      } else {
+        entry.target.classList.remove('visible');
+        const dot = entry.target.querySelector('.dot');
+        if (dot) dot.classList.remove('active');
+      }
     });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('main section').forEach(section => observer.observe(section));
 
-    const avatar = document.getElementById("avatarImage");
-    const avatarContainer = document.getElementById("avatar");
-    const activeImg = "data/hi.png";
-    const idleImg = "data/sleepy.png";
+  // Avatar behavior
+  const avatar = document.getElementById("avatarImage");
+  const avatarContainer = document.getElementById("avatar");
+  const activeImg = "data/hi.png";
+  const idleImg = "data/sleepy.png";
 
-    const setActiveAvatar = () => {
-      avatar.src = activeImg;
-      avatar.classList.add("animate");
-    };
+  const setActiveAvatar = () => { avatar.src = activeImg; };
+  const setIdleAvatar = () => { avatar.src = idleImg; };
 
-    const setIdleAvatar = () => {
-      avatar.src = idleImg;
-      avatar.classList.remove("animate");
-    };
+  let idleTimeout;
+  const resetIdleDetection = () => {
+    setActiveAvatar();
+    clearTimeout(idleTimeout);
+    idleTimeout = setTimeout(setIdleAvatar, 500);
+  };
 
-    let idleTimeout;
-    const resetIdleDetection = () => {
-      setActiveAvatar();
-      clearTimeout(idleTimeout);
-      idleTimeout = setTimeout(() => {
-        setIdleAvatar();
-      }, 500);
-    };
+  ['scroll', 'mousemove', 'keydown'].forEach(event => window.addEventListener(event, resetIdleDetection));
+  resetIdleDetection();
 
-    ['scroll', 'mousemove', 'keydown'].forEach(event => {
-      window.addEventListener(event, resetIdleDetection);
-    });
-
-    resetIdleDetection();
-
-    // Initial animation to bottom-right
-	window.addEventListener('load', () => {
+  window.addEventListener('load', () => {
     setTimeout(() => {
-      document.getElementById('avatar').classList.add('to-corner');
+      avatarContainer.classList.add('to-corner');
     }, 2000);
 
-    // Ensure audio plays after first interaction (for browser autoplay policies)
+    // Ensure audio plays after first interaction
     window.addEventListener('click', () => {
       const audio = document.getElementById('bgMusic');
       if (audio.paused) {
@@ -303,16 +324,18 @@
     const audio = document.getElementById('bgMusic');
     audio.muted = !audio.muted;
   }
-  
 
-  </script>
-<!-- Ambient Music -->
-<audio autoplay="" id="bgMusic" loop="" src="data/zen.mp3"></audio>
-<!-- Music Toggle Button -->
-<!-- music taken from Music by Bensound.com
-License code: GO2WMZCKODZMYGAU-->
-<button class="fixed bottom-5 left-5 bg-[#B85C38] text-black px-3 py-2 rounded shadow z-50" onclick="toggleMusic()">
-  Toggle Music
-</button>
+	const menuToggle = document.getElementById("menu-toggle");
+	const sidebarMenu = document.getElementById("sidebar-menu");
+
+	menuToggle.addEventListener("click", () => {
+	  const isOpen = !sidebarMenu.classList.contains("-translate-x-full");
+	  sidebarMenu.classList.toggle("-translate-x-full");
+	  document.body.classList.toggle("overflow-hidden", !isOpen);
+	});
+
+
+</script>
+
 </body>
 </html>
