@@ -12,9 +12,11 @@
       scroll-behavior: smooth;
       background-color: #FFE6BC;
     }
+
     h1, h2, h3 {
       font-family: 'Playfair Display', serif;
     }
+
     section {
       background-color: #FFF3E0;
       position: relative;
@@ -22,6 +24,7 @@
       border-radius: 0.75rem;
       z-index: 10;
     }
+
     .timeline {
       position: absolute;
       left: 20px;
@@ -30,6 +33,7 @@
       width: 2px;
       background: repeating-linear-gradient(to bottom, #B85C38, #B85C38 4px, transparent 4px, transparent 12px);
     }
+
     .dot {
       position: absolute;
       left: -26px;
@@ -39,51 +43,96 @@
       background-color: #ccc;
       transition: background-color 0.5s;
     }
+
     .dot.active {
       background-color: #B85C38;
     }
 
     #avatar {
       position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       background: #FFE6BC;
       z-index: 50;
-      transition: all 2s ease;
-    }
-    #avatar img {
-      width: 400px;
-      border-radius: 50%;
-      object-fit: cover;
-      transition: all 2s ease;
-      cursor: pointer;
-    }
-    #avatar.to-corner {
-      top: auto; left: auto;
-      right: 20px; bottom: 20px;
-      width: auto; height: auto;
-      background: none;
-      justify-content: unset;
-      align-items: unset;
-    }
-    #avatar.to-corner img {
-      width: 60px;
+      transition: opacity 1s ease;
     }
 
-    /* Floating menu */
-    #avatarMenu {
+    #avatar.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #avatarImage {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: all 1s ease;
+    }
+
+    #avatarImage.small {
+      width: 80px;
+      height: 80px;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
       z-index: 9999;
+    }
+
+    #avatarCorner {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      z-index: 9999;
+      cursor: pointer;
+      pointer-events: auto;
+      display: block;
+    }
+
+    #avatarMenu {
+      background-color: #FFF3E0;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      padding: 1rem;
+      z-index: 9999;
+      position: fixed;
+      bottom: 110px;
+      right: 20px;
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      pointer-events: auto;
+    }
+
+    #avatarMenu a {
+      color: #6B4F3A;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+    }
+
+    #avatarMenu a:hover {
+      background-color: #FDD9A0;
+    }
+
+    #avatarMenu .mute-toggle {
+      color: #B85C38;
+      font-weight: bold;
+      cursor: pointer;
     }
   </style>
 </head>
-
 <body class="text-[#6B4F3A]">
 
-<!-- Header -->
-<header class="bg-[#FFE6BC] shadow-md fixed top-0 w-full z-50">
+<header class="bg-[#FFE6BC] shadow-md fixed top-0 w-full z-40">
   <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
     <h1 class="text-3xl font-bold text-black">Aakash Chouhan</h1>
     <nav class="hidden md:flex flex-wrap gap-6 text-lg text-black">
@@ -97,43 +146,109 @@
   </div>
 </header>
 
-<!-- Padding after fixed header -->
 <div class="h-24"></div>
 
-<!-- Main Content -->
 <main class="container mx-auto px-4 py-12 space-y-28 relative z-10">
   <div class="timeline"></div>
-  <section id="about"><div class="dot"></div><h2>About Me</h2><p>Intro info...</p></section>
-  <section id="education"><div class="dot"></div><h2>Education</h2><p>Education info...</p></section>
-  <section id="skills"><div class="dot"></div><h2>Skills</h2><p>Skills info...</p></section>
-  <section id="experience"><div class="dot"></div><h2>Experience</h2><p>Experience info...</p></section>
-  <section id="projects"><div class="dot"></div><h2>Projects</h2><p>Project info...</p></section>
-  <section id="certifications"><div class="dot"></div><h2>Certifications</h2><p>Certifications info...</p></section>
+
+  <section id="about"><div class="dot"></div><h2 class="text-2xl font-semibold text-[#B85C38]">About Me</h2><p>Computer Science student at the University of Manitoba with strong foundations in Java development, distributed systems, and cybersecurity.</p></section>
+
+  <section id="education"><div class="dot"></div><h2 class="text-2xl font-semibold text-[#B85C38]">Education</h2>
+    <ul class="list-disc ml-6">
+      <li><strong>B.Sc. Computer Science</strong> – University of Manitoba (2020–2025)</li>
+      <li><strong>Foundation in CS</strong> – ICM (2019–2020)</li>
+    </ul>
+  </section>
+
+  <section id="skills"><div class="dot"></div><h2 class="text-2xl font-semibold text-[#B85C38]">Skills</h2>
+    <ul class="list-disc ml-6">
+      <li>Languages: Java, Python, C++, SQL</li>
+      <li>Tools: Grafana, Metasploit, Nmap, Git</li>
+      <li>Concepts: Cybersecurity, Microservices, Threat Intelligence</li>
+    </ul>
+  </section>
+
+  <section id="experience"><div class="dot"></div><h2 class="text-2xl font-semibold text-[#B85C38]">Experience</h2>
+    <p><strong>Software Developer</strong> - University of Manitoba</p>
+    <p>Enhanced a code evaluation engine to detect academic misconduct.</p>
+  </section>
+
+  <section id="projects"><div class="dot"></div><h2 class="text-2xl font-semibold text-[#B85C38]">Projects</h2>
+    <ul class="list-disc ml-6">
+      <li>Academic Integrity Tool – Java-based plagiarism detection.</li>
+      <li>Secure Web Audit – Pen testing using OWASP Top 10.</li>
+    </ul>
+  </section>
+
+  <section id="certifications"><div class="dot"></div><h2 class="text-2xl font-semibold text-[#B85C38]">Certifications</h2>
+    <ul class="list-disc ml-6">
+      <li>Cybersecurity Job Simulation – Mastercard</li>
+      <li>CTF Workshop – Magnet Summit</li>
+    </ul>
+  </section>
 </main>
 
-<!-- Avatar -->
+<!-- Initial Avatar -->
 <div id="avatar">
-  <img id="avatarImage" src="data/hi.png" alt="Avatar" />
+  <img id="avatarImage" src="data/hi.png" alt="Avatar">
 </div>
 
-<!-- Floating Nav Menu -->
-<div id="avatarMenu" class="hidden fixed bottom-24 right-4 bg-[#FFF3E0] text-[#6B4F3A] shadow-lg rounded-lg flex flex-col space-y-3 p-4 z-[9999]">
-  <a href="#about" class="hover:text-[#B85C38]">About</a>
-  <a href="#education" class="hover:text-[#B85C38]">Education</a>
-  <a href="#skills" class="hover:text-[#B85C38]">Skills</a>
-  <a href="#experience" class="hover:text-[#B85C38]">Experience</a>
-  <a href="#projects" class="hover:text-[#B85C38]">Projects</a>
-  <a href="#certifications" class="hover:text-[#B85C38]">Certifications</a>
+<!-- Persistent Corner Avatar -->
+<div id="avatarCorner" style="display:none;">
+  <img src="data/hi.png" alt="Corner Avatar" id="cornerAvatar">
 </div>
 
-<!-- Background Music -->
+<!-- Floating Menu -->
+<div id="avatarMenu" class="flex hidden" style="display:none;">
+  <a href="#about">About</a>
+  <a href="#education">Education</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#certifications">Certifications</a>
+  <span class="mute-toggle" onclick="toggleMusic()">Toggle Music</span>
+</div>
+
 <audio id="bgMusic" src="data/zen.mp3" autoplay loop></audio>
-<button onclick="toggleMusic()" class="fixed bottom-5 left-5 bg-[#B85C38] text-black px-3 py-2 rounded shadow z-50">
-  Toggle Music
-</button>
 
 <script>
-  // Section observer
+  const avatar = document.getElementById("avatar");
+  const avatarImg = document.getElementById("avatarImage");
+  const avatarCorner = document.getElementById("avatarCorner");
+  const avatarMenu = document.getElementById("avatarMenu");
+  const cornerAvatar = document.getElementById("cornerAvatar");
+
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      avatar.classList.add("hide");
+      avatarCorner.style.display = "block";
+    }, 2000);
+  });
+
+  cornerAvatar.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (avatarMenu.style.display === "none" || avatarMenu.classList.contains("hidden")) {
+      avatarMenu.style.display = "flex";
+      avatarMenu.classList.remove("hidden");
+    } else {
+      avatarMenu.style.display = "none";
+      avatarMenu.classList.add("hidden");
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!avatarMenu.contains(e.target) && !cornerAvatar.contains(e.target)) {
+      avatarMenu.style.display = "none";
+      avatarMenu.classList.add("hidden");
+    }
+  });
+
+  function toggleMusic() {
+    const audio = document.getElementById('bgMusic');
+    audio.muted = !audio.muted;
+  }
+
+  // Scroll animation
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -147,53 +262,10 @@
       }
     });
   }, { threshold: 0.3 });
-  document.querySelectorAll('main section').forEach(section => observer.observe(section));
 
-  // Avatar logic
-  const avatar = document.getElementById("avatarImage");
-  const avatarContainer = document.getElementById("avatar");
-  const menu = document.getElementById("avatarMenu");
-
-  const activeImg = "data/hi.png";
-  const idleImg = "data/sleepy.png";
-  let idleTimeout;
-
-  const setActiveAvatar = () => { avatar.src = activeImg; };
-  const setIdleAvatar = () => { avatar.src = idleImg; };
-  const resetIdleDetection = () => {
-    setActiveAvatar();
-    clearTimeout(idleTimeout);
-    idleTimeout = setTimeout(setIdleAvatar, 500);
-  };
-  ['scroll', 'mousemove', 'keydown'].forEach(event => window.addEventListener(event, resetIdleDetection));
-  resetIdleDetection();
-
-  window.addEventListener('load', () => {
-    setTimeout(() => avatarContainer.classList.add('to-corner'), 2000);
-    window.addEventListener('click', () => {
-      const audio = document.getElementById('bgMusic');
-      if (audio.paused) audio.play().catch(() => {});
-    }, { once: true });
-  });
-
-  function toggleMusic() {
-    const audio = document.getElementById('bgMusic');
-    audio.muted = !audio.muted;
-  }
-
-  // Floating menu toggle on avatar
-  avatar.addEventListener("click", (e) => {
-    e.stopPropagation();
-    menu.classList.toggle("hidden");
-  });
-
-  // Close floating menu when clicking outside
-  document.addEventListener("click", (e) => {
-    if (!menu.contains(e.target) && !avatar.contains(e.target)) {
-      menu.classList.add("hidden");
-    }
+  document.querySelectorAll('main section').forEach(section => {
+    observer.observe(section);
   });
 </script>
-
 </body>
 </html>
